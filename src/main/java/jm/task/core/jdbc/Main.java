@@ -9,15 +9,25 @@ public class Main {
     public static void main(String[] args) {
         UserServiceImpl usi = new UserServiceImpl();
         usi.createUsersTable();
-        usi.saveUser("Stas", "Kosyy", (byte) 21);
-        usi.saveUser("Nikita", "Boloto", (byte) 31);
-        usi.saveUser("Kostya", "Mel", (byte) 15);
-        usi.saveUser("Masha", "Trofimova", (byte) 20);
+        usi.saveUser("Stas", "Kosyy", new Byte("21"));
+        usi.saveUser("Nikita", "Boloto", new Byte("22"));
+        usi.saveUser("Kostya", "Mel", new Byte("23"));
+        usi.saveUser("Masha", "Trofimova", new Byte("24"));
         ArrayList<User> users = (ArrayList<User>) usi.getAllUsers();
         for (User user: users) {
             System.out.println(user);
         }
+        usi.removeUserById(1);
+        users = (ArrayList<User>) usi.getAllUsers();
+        for (User user: users) {
+            System.out.println(user);
+        }
         usi.cleanUsersTable();
+        System.out.println("После очистки:");
+        users = (ArrayList<User>) usi.getAllUsers();
+        for (User user: users) {
+            System.out.println(user);
+        }
         usi.dropUsersTable();
     }
 }
