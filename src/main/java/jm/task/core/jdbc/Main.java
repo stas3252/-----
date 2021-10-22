@@ -9,10 +9,10 @@ public class Main {
     public static void main(String[] args) {
         UserServiceImpl usi = new UserServiceImpl();
         usi.createUsersTable();
-        usi.saveUser("Stas", "Kosyy", new Byte("21"));
-        usi.saveUser("Nikita", "Boloto", new Byte("22"));
-        usi.saveUser("Kostya", "Mel", new Byte("23"));
-        usi.saveUser("Masha", "Trofimova", new Byte("24"));
+        usi.saveUser("Stas", "Kosyy", (byte)20);
+        usi.saveUser("Nikita", "Boloto", (byte)21);
+        usi.saveUser("Kostya", "Mel", (byte)22);
+        usi.saveUser("Masha", "Trofimova", (byte)23);
         ArrayList<User> users = (ArrayList<User>) usi.getAllUsers();
         for (User user: users) {
             System.out.println(user);
