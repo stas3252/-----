@@ -98,13 +98,12 @@ public class UserDaoJDBCImpl implements UserDao {
         try {
             statement = DB.connection.createStatement();
             res = statement.executeQuery("SELECT * FROM USERS");
-            System.out.println("Все данные считаны!");
 
             while (res.next()) {
-                long id = Integer.parseInt(res.getString(1)); // не работает res.getLong()
+                long id = Integer.parseInt(res.getString(1));
                 String name = res.getString(2);
                 String lastName = res.getString(3);
-                byte age = (byte)Integer.parseInt(res.getString(4)); // не работает res.getByte()
+                byte age = (byte)(res.getInt(4));
                 User user = new User(name, lastName, age);
                 user.setId(id);
                 users.add(user);

@@ -14,6 +14,7 @@ public class Main {
         usi.saveUser("Kostya", "Mel", (byte)22);
         usi.saveUser("Masha", "Trofimova", (byte)23);
         ArrayList<User> users = (ArrayList<User>) usi.getAllUsers();
+        System.out.println("Получили пользователей!");
         for (User user: users) {
             System.out.println(user);
         }
